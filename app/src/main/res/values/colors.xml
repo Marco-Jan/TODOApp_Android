@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="t_cloud">#505160</color> //Gray
+    <color name="waterfall">#68829E</color> // bluegray
+    <color name="moss">#AEBD38</color> // hellgrün
+    <color name="meadow">#598234</color> // grün
+</resources>

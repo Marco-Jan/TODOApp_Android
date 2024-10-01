@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/main_header_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/t_cloud"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/add_list_button"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/icon_add_list"
+            android:contentDescription="@string/add_List"
+            android:layout_gravity="end|center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/ic_rounded_filled_border"
+            />
+
+        <TextView
+            android:id="@+id/tv_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:padding="16dp"
+            android:text="@string/app_name"
+            android:textColor="@color/moss"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_contraintTop_toBottomOf="@+id/main_header_panel"
+        app:layout_contraintBottom_toBottomOf = "parent"
+        app:layout_contraintStart_toStartOf = "parent"
+        app:layout_contraintEnd_toEndOf = "parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
