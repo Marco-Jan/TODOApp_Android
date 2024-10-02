@@ -12,6 +12,7 @@ import com.MJ.todoapp.databinding.TodoListCardItemBinding
 
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var todoListAdapter: TodoListAdapter
 
@@ -43,11 +44,8 @@ class MainActivity : AppCompatActivity() {
     val exampleList2 = TodoList("Garten", mutableListOf(
         Item("Rindenmulch", false)
     ))
-
         todoListAdapter.addTodoList(exampleList)
         todoListAdapter.addTodoList(exampleList2)
-
-
     }
 }
 
