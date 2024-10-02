@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, SingleListViewActivity::class.java).apply{
                     putExtra("todoList", todoList) //Übertrage die TodoList über den intent
                 }
-                startActivity(intent)
+                listActivityLauncher.launch(intent)
 
             },
             { todoList: TodoList, position ->
