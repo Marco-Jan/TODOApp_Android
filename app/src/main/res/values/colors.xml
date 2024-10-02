@@ -6,4 +6,5 @@
     <color name="waterfall">#68829E</color> // bluegray
     <color name="moss">#AEBD38</color> // hellgrün
     <color name="meadow">#598234</color> // grün
+    <color name="light_teal">#87d0c4</color>
 </resources>
