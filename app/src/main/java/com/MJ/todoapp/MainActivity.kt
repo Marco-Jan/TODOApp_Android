@@ -1,12 +1,18 @@
 package com.MJ.todoapp
+import com.MJ.todoapp.TodoList
+import com.MJ.todoapp.Item
+
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.icu.text.Transliterator.Position
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var todoListAdapter: TodoListAdapter
+    private lateinit var listActivityLauncher: ActivityResultLauncher<Intent>
 
     private val todoLists = mutableListOf<TodoList>()
 
@@ -33,10 +40,13 @@ class MainActivity : AppCompatActivity() {
     //Initialisiere den ADapter und se´tze ihn auf den RecyclerView
         todoListAdapter = TodoListAdapter(todoLists,
             { todoList: TodoList ->
-                //handle item click
+                val intent = Intent(this, SingleListViewActivity::class.java).apply{
+                    putExtra("todoList", todoList) //Übertrage die TodoList über den intent
+                }
+                startActivity(intent)
 
             },
-            { todoList, position ->
+            { todoList: TodoList, position ->
                 showDeleteConfirmationDialog(todoList, position)
             }
         )
@@ -61,6 +71,21 @@ class MainActivity : AppCompatActivity() {
 
         binding.addListButton.setOnClickListener{
             addNewList();
+        }
+
+        listActivityLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {result ->
+            if(result.resultCode == RESULT_OK) {
+                val updatedTodoList = result.data?.getParcelableExtraProvider<TodoList>("updatedTodoList")
+                updatedTodoList?.let { updatedList ->
+                    val index = todoLists.indexOfFirst { it.title == updatedList.title }
+                    if(index != -1) {
+                        todoLists[index] = updatedList
+                        todoListAdapter.notifyItemChanged(index)
+                    }
+                }
+            }
         }
     }
 

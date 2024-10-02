@@ -1,4 +1,6 @@
 package com.MJ.todoapp
+import com.MJ.todoapp.TodoList
+import com.MJ.todoapp.Item
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

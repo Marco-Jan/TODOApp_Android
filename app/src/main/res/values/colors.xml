@@ -7,4 +7,5 @@
     <color name="moss">#AEBD38</color> // hellgrün
     <color name="meadow">#598234</color> // grün
     <color name="light_teal">#87d0c4</color>
+    <color name="gray">#808080</color>
 </resources>
