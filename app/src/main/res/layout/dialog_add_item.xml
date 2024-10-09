@@ -6,10 +6,10 @@
     android:padding="16dp"
     >
     <EditText
-        android:id="@+id/list_name_input"
+        android:id="@+id/item_name_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/add_list_hint"
+        android:hint="@string/add_item_hint"
         />
     <TextView
         android:id="@+id/error_message"
@@ -17,6 +17,6 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/holo_red_dark"
         android:visibility="gone"
-        android:text="@string/add_list_err_input"
+        android:text="@string/add_item_err_input"
         />
 </LinearLayout>
